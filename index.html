@@ -1,599 +1,611 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta name="robots" content="index, follow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Скачивание файлов</title>
+    <title>Мир Ши-тцу - все о прекрасной породе</title>
+    
+    <!-- Основные SEO-метатеги -->
+    <meta name="description" content="Всё о породе собак ши-тцу: история, уход, характер, фото. Советы по содержанию и воспитанию этих прекрасных маленьких львов с большим сердцем.">
+    <meta name="keywords" content="ши-тцу, собаки, породы собак, уход за ши-тцу, характер ши-тцу, фото ши-тцу">
+    
+    <!-- OpenGraph метатеги -->
+    <meta property="og:title" content="Мир Ши-тцу - все о прекрасной породе">
+    <meta property="og:description" content="Всё о породе собак ши-тцу: история, уход, характер, фото. Советы по содержанию и воспитанию этих прекрасных маленьких львов с большим сердцем.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dima123-wq.github.io">
+    <meta property="og:image" content="https://github.com/Dima123-wq/Dima123-wq.github.io-/blob/main/IMG_20240704_055249.jpg?raw=true">
+    <meta property="og:site_name" content="Мир Ши-тцу">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Каноническая ссылка -->
+    <link rel="canonical" href="https://dima123-wq.github.io">
+    
+    <!-- Фавиконки -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+    
+    <!-- Метатеги для мобильных устройств -->
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- WebApp манифест -->
+    <link rel="manifest" href="/site.webmanifest">
+    
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
+        
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .dog-paw {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .paw1 {
+            top: 20%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+        
+        .paw2 {
+            top: 60%;
+            left: 80%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 1s;
+        }
+        
+        .paw3 {
+            top: 30%;
+            left: 70%;
+            width: 100px;
+            height: 100px;
+            animation-delay: 2s;
+        }
+        
+        .paw4 {
+            top: 70%;
+            left: 20%;
+            width: 50px;
+            height: 50px;
+            animation-delay: 3s;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 70%;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem;
         }
         
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px;
-            background: white;
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
         }
         
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        section:hover {
+            transform: translateY(-5px);
         }
         
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.1em;
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
         }
         
-        .upload-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
         }
         
-        .upload-area {
-            border: 3px dashed #3498db;
-            border-radius: 10px;
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-        }
-        
-        .upload-area:hover {
-            background-color: #f8fafc;
-            border-color: #2980b9;
-        }
-        
-        .upload-icon {
-            font-size: 60px;
-            color: #3498db;
-            margin-bottom: 15px;
-        }
-        
-        .file-input {
-            display: none;
-        }
-        
-        .upload-btn {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .upload-btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-        }
-        
-        .gallery-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .section-title {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
+        p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
         
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
         
-        .file-card {
-            background: white;
+        .gallery-item {
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            border: 1px solid #eee;
+            position: relative;
         }
         
-        .file-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .file-preview {
-            height: 180px;
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .file-preview img {
+        .gallery-item img {
             width: 100%;
-            height: 100%;
+            height: 250px;
             object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
         }
         
-        .file-icon {
-            font-size: 50px;
-            color: #7f8c8d;
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
         
-        .file-info {
-            padding: 20px;
-        }
-        
-        .file-name {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .file-size {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-        
-        .download-btn {
-            width: 100%;
-            background: #2ecc71;
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
             color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
             border: none;
-            padding: 12px;
-            border-radius: 8px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 15px;
             transition: all 0.3s ease;
-            display: flex;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+        }
+        
+        .telegram-section {
+            background: linear-gradient(135deg, #0088cc, #34b7f1);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .telegram-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.03-.09.06-.17-.06-.25-.12-.09-.3-.05-.43-.03-.18.03-3.1 1.97-4.38 2.86-.42.29-.8.43-1.14.43-.38 0-1.11-.21-1.69-.39-.68-.21-1.22-.33-1.17-.7.03-.2.27-.41.75-.62 2.92-1.27 4.86-2.11 7.36-3.45.51-.27 1.01-.4 1.45-.4.31 0 .82.07 1.19.26.41.21.71.52.93.95.09.17.29.6.17.6z"/></svg>') no-repeat;
+            opacity: 0.1;
+        }
+        
+        .telegram-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .telegram-section h2::after {
+            background-color: white;
+        }
+        
+        .telegram-btn {
+            background: white;
+            color: #0088cc;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
+            gap: 0.8rem;
         }
         
-        .download-btn:hover {
-            background: #27ae60;
+        .telegram-btn:hover {
+            background: var(--accent);
+            color: var(--dark);
         }
         
-        .btn-icon {
-            font-size: 18px;
-        }
-        
-        .delete-btn {
-            background: #e74c3c;
-            margin-top: 10px;
-        }
-        
-        .delete-btn:hover {
-            background: #c0392b;
-        }
-        
-        .status-message {
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+        footer {
+            background-color: var(--dark);
+            color: white;
             text-align: center;
-            font-weight: 500;
-            display: none;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
         
-        .success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
         
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
         
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #7f8c8d;
-            font-size: 1.1em;
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
         }
         
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #7f8c8d;
+        .social-links a:hover {
+            color: var(--accent);
         }
         
-        .empty-icon {
-            font-size: 70px;
-            margin-bottom: 20px;
-            color: #bdc3c7;
-        }
-        
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-            
-            .upload-area {
-                padding: 20px;
-            }
-        }
-        
-        /* Анимации */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .file-card {
-            animation: fadeIn 0.5s ease;
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
         }
         
-        /* Иконки для разных типов файлов */
-        .file-icon.pdf { color: #e74c3c; }
-        .file-icon.doc { color: #3498db; }
-        .file-icon.img { color: #9b59b6; }
-        .file-icon.zip { color: #f39c12; }
-        .file-icon.default { color: #7f8c8d; }
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .fact-card {
+            background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .fact-card h3 {
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .care-tips {
+            margin-top: 2rem;
+        }
+        
+        .tip {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            align-items: flex-start;
+        }
+        
+        .tip:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .tip-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .history-timeline {
+            position: relative;
+            padding-left: 50px;
+            margin-top: 2rem;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: -50px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid white;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .history-timeline {
+                padding-left: 40px;
+            }
+            
+            .timeline-year {
+                left: -40px;
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
+	<!-- Базовые фавиконы -->
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+
+<!-- Для Apple Devices -->
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<!-- Для Android Chrome -->
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Для Safari -->
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+<!-- Для Windows Metro -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="/browserconfig.xml">
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <h1>Ши-тцу</h1>
+            <p class="subtitle">Маленькие львы с большим сердцем</p>
+            <div class="dog-paw paw1">🐾</div>
+            <div class="dog-paw paw2">🐾</div>
+            <div class="dog-paw paw3">🐾</div>
+            <div class="dog-paw paw4">🐾</div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">О породе</a></li>
+            <li><a href="#history">История</a></li>
+            <li><a href="#care">Уход</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#facts">Интересные факты</a></li>
+        </ul>
+    </nav>
+    
     <div class="container">
-        <header>
-            <h1>📁 Скачивание файлов</h1>
-            <p class="subtitle">Загружайте и скачивайте файлы прямо в браузере</p>
-        </header>
+        <section id="about">
+            <h2>О породе Ши-тцу</h2>
+            <p>Ши-тцу — это небольшая, но крепкая собака с роскошной длинной шерстью и гордой осанкой. Их название переводится с китайского как "львенок", что прекрасно отражает их внешний вид и характер. Эти собаки сочетают в себе аристократическую элегантность и жизнерадостный нрав.</p>
+            <p>Средний рост ши-тцу составляет 23-27 см в холке, а вес — 4-8 кг. Они имеют компактное, но крепкое телосложение, что делает их одновременно изящными и выносливыми. Главная гордость ши-тцу — их длинная, шелковистая шерсть, которая требует регулярного ухода.</p>
+            <p>Характер ши-тцу — это удивительное сочетание достоинства и игривости. Они очень привязаны к своим хозяевам, но при этом сохраняют некоторую независимость. Ши-тцу прекрасно чувствуют настроение людей и умеют подстраиваться под него — они могут быть тихими и спокойными, когда хозяин занят, или веселыми и активными, когда приходит время игр.</p>
+            <p>Эти собаки отлично подходят для жизни в квартире, они не требуют много места и длительных прогулок. При этом ши-тцу очень общительны и любят быть в центре внимания. Они хорошо ладят с детьми и другими животными, хотя иногда могут проявлять ревность.</p>
+            <p>Ши-тцу — идеальные компаньоны для людей любого возраста. Они подойдут как пожилым людям, ценящим спокойствие, так и активным семьям с детьми. Главное для этих собак — быть рядом с любимым хозяином и чувствовать его любовь и заботу.</p>
+        </section>
         
-        <div class="upload-section">
-            <h2 class="section-title">Загрузить файл</h2>
-            <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-                <div class="upload-icon">📤</div>
-                <h3>Перетащите файлы сюда или нажмите для выбора</h3>
-                <p>Поддерживаются изображения, PDF, документы и архивы</p>
-            </div>
-            <input type="file" id="fileInput" class="file-input" multiple onchange="handleFileUpload(event)">
-            <div style="text-align: center;">
-                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
-                    Выбрать файлы
-                </button>
-            </div>
+        <section id="history">
+            <h2>История породы</h2>
+            <p>Ши-тцу — одна из древнейших пород собак, чья история насчитывает более 2000 лет. Их происхождение окутано легендами и тайнами, но точно известно, что эти собаки были любимцами китайской императорской семьи на протяжении многих веков.</p>
             
-            <div id="statusMessage" class="status-message"></div>
-        </div>
-        
-        <div class="gallery-section">
-            <h2 class="section-title">Доступные файлы</h2>
-            <div id="fileGallery" class="gallery">
-                <!-- Файлы будут добавляться здесь -->
-                <div class="loading">Загрузка файлов...</div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Имитация базы данных в localStorage
-        const STORAGE_KEY = 'uploaded_files';
-        
-        // Предустановленные файлы (имитация сервера)
-        const defaultFiles = [
-            {
-                id: '1',
-                name: 'Пейзаж 1.jpg',
-                url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80',
-                size: 2048000,
-                type: 'image/jpeg'
-            },
-            {
-                id: '2',
-                name: 'Горы.jpg',
-                url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w-800&q=80',
-                size: 1568000,
-                type: 'image/jpeg'
-            },
-            {
-                id: '3',
-                name: 'Океан.jpg',
-                url: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w-800&q=80',
-                size: 1895000,
-                type: 'image/jpeg'
-            },
-            {
-                id: '4',
-                name: 'Лес.jpg',
-                url: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80',
-                size: 2345000,
-                type: 'image/jpeg'
-            }
-        ];
-        
-        // Функция для получения файлов
-        function getFiles() {
-            const savedFiles = localStorage.getItem(STORAGE_KEY);
-            if (savedFiles) {
-                return JSON.parse(savedFiles);
-            }
-            // Сохраняем дефолтные файлы при первом запуске
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultFiles));
-            return defaultFiles;
-        }
-        
-        // Функция для сохранения файлов
-        function saveFiles(files) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(files));
-        }
-        
-        // Функция для отображения файлов
-        function displayFiles() {
-            const gallery = document.getElementById('fileGallery');
-            const files = getFiles();
-            
-            if (files.length === 0) {
-                gallery.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">📁</div>
-                        <h3>Нет доступных файлов</h3>
-                        <p>Загрузите первый файл, используя форму выше</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            gallery.innerHTML = files.map(file => `
-                <div class="file-card" data-id="${file.id}">
-                    <div class="file-preview">
-                        ${file.type.startsWith('image/') 
-                            ? `<img src="${file.url}" alt="${file.name}" loading="lazy">`
-                            : `<div class="file-icon ${getFileIconClass(file.type)}">${getFileIcon(file.type)}</div>`
-                        }
-                    </div>
-                    <div class="file-info">
-                        <div class="file-name" title="${file.name}">${file.name}</div>
-                        <div class="file-size">${formatFileSize(file.size)}</div>
-                        <button class="download-btn" onclick="downloadFile('${file.id}')">
-                            <span class="btn-icon">⬇️</span> Скачать
-                        </button>
-                        <button class="download-btn delete-btn" onclick="deleteFile('${file.id}')">
-                            <span class="btn-icon">🗑️</span> Удалить
-                        </button>
+            <div class="history-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">624 г.</div>
+                    <div class="timeline-content">
+                        <p>Первые упоминания о собаках, похожих на ши-тцу, в китайских хрониках. Согласно легенде, несколько таких собак были подарены китайскому императору правителем Византии.</p>
                     </div>
                 </div>
-            `).join('');
-        }
-        
-        // Функция для скачивания файла
-        function downloadFile(fileId) {
-            const files = getFiles();
-            const file = files.find(f => f.id === fileId);
-            
-            if (!file) {
-                showMessage('Файл не найден!', 'error');
-                return;
-            }
-            
-            showMessage(`Начинается скачивание: ${file.name}`, 'success');
-            
-            // Создаем временную ссылку для скачивания
-            const link = document.createElement('a');
-            link.href = file.url;
-            link.download = file.name;
-            
-            // Для безопасности добавляем таргет _blank для внешних ссылок
-            if (file.url.startsWith('http')) {
-                link.target = '_blank';
-            }
-            
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Если это не внешний URL, создаем Blob для скачивания
-            if (!file.url.startsWith('http')) {
-                setTimeout(() => {
-                    showMessage(`Файл "${file.name}" успешно скачан!`, 'success');
-                }, 1000);
-            }
-        }
-        
-        // Функция для удаления файла
-        function deleteFile(fileId) {
-            if (!confirm('Вы уверены, что хотите удалить этот файл?')) {
-                return;
-            }
-            
-            const files = getFiles();
-            const filteredFiles = files.filter(f => f.id !== fileId);
-            
-            saveFiles(filteredFiles);
-            displayFiles();
-            showMessage('Файл успешно удален!', 'success');
-        }
-        
-        // Функция для загрузки файлов
-        function handleFileUpload(event) {
-            const files = Array.from(event.target.files);
-            
-            if (files.length === 0) return;
-            
-            const currentFiles = getFiles();
-            
-            files.forEach((file, index) => {
-                // Создаем URL для локального файла
-                const fileUrl = URL.createObjectURL(file);
                 
-                const newFile = {
-                    id: Date.now() + index,
-                    name: file.name,
-                    url: fileUrl,
-                    size: file.size,
-                    type: file.type
-                };
-                
-                currentFiles.push(newFile);
-                
-                // Показываем сообщение о загрузке
-                setTimeout(() => {
-                    showMessage(`Файл "${file.name}" успешно загружен!`, 'success');
-                }, index * 500);
-            });
-            
-            saveFiles(currentFiles);
-            displayFiles();
-            
-            // Очищаем input
-            event.target.value = '';
-        }
-        
-        // Вспомогательные функции
-        function formatFileSize(bytes) {
-            if (bytes === 0) return '0 Bytes';
-            
-            const k = 1024;
-            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-            
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-        }
-        
-        function getFileIcon(type) {
-            if (type.startsWith('image/')) return '🖼️';
-            if (type.includes('pdf')) return '📄';
-            if (type.includes('word') || type.includes('document')) return '📝';
-            if (type.includes('zip') || type.includes('rar')) return '📦';
-            if (type.includes('video')) return '🎬';
-            if (type.includes('audio')) return '🎵';
-            return '📁';
-        }
-        
-        function getFileIconClass(type) {
-            if (type.startsWith('image/')) return 'img';
-            if (type.includes('pdf')) return 'pdf';
-            if (type.includes('word') || type.includes('document')) return 'doc';
-            if (type.includes('zip') || type.includes('rar')) return 'zip';
-            return 'default';
-        }
-        
-        function showMessage(text, type) {
-            const messageDiv = document.getElementById('statusMessage');
-            messageDiv.textContent = text;
-            messageDiv.className = `status-message ${type}`;
-            
-            setTimeout(() => {
-                messageDiv.style.display = 'none';
-            }, 5000);
-        }
-        
-        // Инициализация при загрузке страницы
-        document.addEventListener('DOMContentLoaded', () => {
-            displayFiles();
-            
-            // Обработка drag and drop
-            const uploadArea = document.querySelector('.upload-area');
-            
-            uploadArea.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                uploadArea.style.backgroundColor = '#f0f8ff';
-                uploadArea.style.borderColor = '#2980b9';
-            });
-            
-            uploadArea.addEventListener('dragleave', (e) => {
-                e.preventDefault();
-                uploadArea.style.backgroundColor = '';
-                uploadArea.style.borderColor = '#3498db';
-            });
-            
-            uploadArea.addEventListener('drop', (e) => {
-                e.preventDefault();
-                uploadArea.style.backgroundColor = '';
-                uploadArea.style.borderColor = '#3498db';
-                
-                const files = e.dataTransfer.files;
-                if (files.length > 0) {
-                    // Создаем имитацию event для handleFileUpload
-                    const event = {
-                        target: {
-                            files: files
-                        }
-                    };
-                    handleFileUpload(event);
-                }
-            });
-            
-            // Добавляем пример ссылки для скачивания
-            const exampleLink = document.createElement('a');
-            exampleLink.id = 'hiddenDownloadLink';
-            exampleLink.style.display = 'none';
-            document.body.appendChild(exampleLink);
-        });
-        
-        // Дополнительная функция для скачивания по URL
-        function downloadFromUrl(url, filename) {
-            showMessage(`Начинается скачивание файла`, 'success');
-            
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = filename || 'download';
-            link.target = '_blank';
-            
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        // Экспортируем функции в глобальную область видимости
-        window.downloadFile = downloadFile;
-        window.downloadFromUrl = downloadFromUrl;
-        window.deleteFile = deleteFile;
-        window.handleFileUpload = handleFileUpload;
-    </script>
-</body>
-</html>
+                <div class="timeline-item">
+                    <div class="timeline-year">XIV в.</div>
+                    <div class="timeline-content">
+                        <p>Ши-тцу становятся исключительной привилегией императорской семьи. Простым людям под страхом смерти запрещалось держать этих собак. Ши
