@@ -22,20 +22,24 @@
     <!-- Каноническая ссылка -->
     <link rel="canonical" href="https://dima123-wq.github.io">
     
-    <!-- Фавиконки -->
+    <!-- Базовые фавиконы -->
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    
+    <!-- Для Apple Devices -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    
+    <!-- Для Android Chrome -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Для Safari -->
     <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
     
-    <!-- Метатеги для мобильных устройств -->
-    <meta name="theme-color" content="#ffffff">
+    <!-- Для Windows Metro -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-config" content="/browserconfig.xml">
-    
-    <!-- WebApp манифест -->
-    <link rel="manifest" href="/site.webmanifest">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
@@ -507,6 +511,121 @@
             border-right: 10px solid white;
         }
         
+        /* Стили для нового раздела "Скачать фото" */
+        .download-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 5px solid var(--primary);
+        }
+        
+        .download-info {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .download-info p {
+            margin-bottom: 1rem;
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .download-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .download-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .download-content {
+            padding: 1rem;
+        }
+        
+        .download-content h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .download-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            transform: scale(1.05);
+        }
+        
+        .download-all {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px dashed #ddd;
+        }
+        
+        .download-all-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            background: linear-gradient(45deg, var(--dark), #444);
+        }
+        
+        .download-all-btn:hover {
+            background: linear-gradient(45deg, #444, var(--dark));
+        }
+        
+        .license-info {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .license-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -540,26 +659,13 @@
                 height: 30px;
                 font-size: 0.8rem;
             }
+            
+            .download-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
         }
     </style>
-	<!-- Базовые фавиконы -->
-<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-
-<!-- Для Apple Devices -->
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<!-- Для Android Chrome -->
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
-
-<!-- Для Safari -->
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-<!-- Для Windows Metro -->
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-config" content="/browserconfig.xml">
 </head>
 <body>
     <header>
@@ -580,6 +686,7 @@
             <li><a href="#care">Уход</a></li>
             <li><a href="#gallery">Галерея</a></li>
             <li><a href="#facts">Интересные факты</a></li>
+            <li><a href="#download">Скачать фото</a></li> <!-- Новая ссылка -->
         </ul>
     </nav>
     
@@ -723,7 +830,7 @@
             <h2>Галерея Ши-тцу</h2>
             <p>Полюбуйтесь на этих прекрасных созданий в нашей фотогалерее. Каждая фотография передает уникальную красоту и характер этих удивительных собак.</p>
             
-<div class="gallery">
+            <div class="gallery">
                 <div class="gallery-item">
                     <img src="https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20240704_055249.jpg?raw=true" alt="Ши-тцу с бантиком">
                     <div class="gallery-caption">Ши-тцу на прогулке</div>
@@ -738,22 +845,53 @@
                     <img src="https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20241206_213721.jpg?raw=true" alt="Ши-тцу в студии">
                     <div class="gallery-caption">Фотосессия: ши-тцу в профессиональной студии</div>
                 </div>
-			
+            
                 <div class="gallery-item">
                     <img src="https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20240426_134347.jpg?raw=true" alt="Ши-тцу разных окрасов">
                     <div class="gallery-caption">Ши-тцу демонстрирует разнообразие окрасов породы</div>
                 </div>
-				
+                
                 <div class="gallery-item">
                     <img src="https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20240818_114827.jpg?raw=true" alt="Гордая ши-тцу">
                     <div class="gallery-caption">Гордая ши-тцу</div>
                 </div>
-				
-				<div class="gallery-item">
+                
+                <div class="gallery-item">
                     <img src="https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20240818_122316.jpg?raw=true" alt="Ши-тцу путешествует">
                     <div class="gallery-caption">Ши-тцу путешествует</div>
                 </div>
-				
+            </div>
+        </section>
+        
+        <!-- НОВЫЙ РАЗДЕЛ "СКАЧАТЬ ФОТО" -->
+        <section id="download" class="download-section">
+            <h2>Скачать фото Ши-тцу</h2>
+            
+            <div class="download-info">
+                <p>Здесь вы можете скачать понравившиеся фотографии ши-тцу с нашего сайта. Все изображения доступны для личного использования в высоком качестве.</p>
+                <p>Просто нажмите на кнопку "Скачать" под нужным изображением. Для скачивания всех фото сразу воспользуйтесь кнопкой "Скачать все фото" внизу страницы.</p>
+            </div>
+            
+            <div class="download-grid" id="downloadContainer">
+                <!-- Карточки для скачивания будут сгенерированы JavaScript -->
+            </div>
+            
+            <div class="download-all">
+                <button class="btn download-all-btn" id="downloadAllBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 10px;">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Скачать все фото (ZIP архив)
+                </button>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Все фотографии будут загружены в виде ZIP архива</p>
+            </div>
+            
+            <div class="license-info">
+                <p><strong>Условия использования:</strong></p>
+                <p>✓ Фотографии можно использовать для личных целей</p>
+                <p>✓ Разрешено делиться фото в социальных сетях с указанием источника</p>
+                <p>✓ Запрещено коммерческое использование без разрешения</p>
+                <p>✓ Фотографии защищены авторским правом</p>
             </div>
         </section>
         
@@ -793,10 +931,274 @@
     </footer>
     
     <script>
-        // Анимация при прокрутке
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section');
+        // Данные для скачивания фото
+        const photosData = [
+            {
+                url: "https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20240704_055249.jpg?raw=true",
+                title: "Ши-тцу с бантиком",
+                description: "Ши-тцу на прогулке",
+                size: "2.4 MB"
+            },
+            {
+                url: "https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_2400.jpg?raw=true",
+                title: "Ши-тцу с хозяином",
+                description: "Преданный ши-тцу со своим хозяином",
+                size: "1.8 MB"
+            },
+            {
+                url: "https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20241206_213721.jpg?raw=true",
+                title: "Ши-тцу в студии",
+                description: "Фотосессия в профессиональной студии",
+                size: "3.2 MB"
+            },
+            {
+                url: "https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20240426_134347.jpg?raw=true",
+                title: "Разнообразие окрасов",
+                description: "Ши-тцу демонстрирует разные окрасы",
+                size: "2.1 MB"
+            },
+            {
+                url: "https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20240818_114827.jpg?raw=true",
+                title: "Гордая ши-тцу",
+                description: "Гордый ши-тцу на фотосессии",
+                size: "1.9 MB"
+            },
+            {
+                url: "https://github.com/Dima123-wq/dima123-wq.github.io/blob/main/Images%20on%20the%20website/IMG_20240818_122316.jpg?raw=true",
+                title: "Ши-тцу путешествует",
+                description: "Ши-тцу в пути",
+                size: "2.3 MB"
+            }
+        ];
+
+        // Функция для скачивания одной фотографии
+        function downloadPhoto(url, filename) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename || 'shih-tzu-photo.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
             
+            // Показать уведомление
+            showNotification(`Фото "${filename}" скачивается...`);
+        }
+
+        // Функция для скачивания всех фото через JSZip
+        async function downloadAllPhotos() {
+            showNotification('Подготовка ZIP архива... Это может занять несколько секунд.');
+            
+            try {
+                // Создаем ZIP архив
+                const zip = new JSZip();
+                let downloadedCount = 0;
+                
+                // Добавляем каждое фото в архив
+                for (let i = 0; i < photosData.length; i++) {
+                    const photo = photosData[i];
+                    try {
+                        const response = await fetch(photo.url);
+                        const blob = await response.blob();
+                        const filename = `shih-tzu-${i + 1}.jpg`;
+                        zip.file(filename, blob);
+                        downloadedCount++;
+                        
+                        // Обновляем прогресс
+                        updateDownloadProgress(downloadedCount, photosData.length);
+                    } catch (error) {
+                        console.error(`Ошибка при загрузке фото ${i + 1}:`, error);
+                    }
+                }
+                
+                // Генерируем и скачиваем ZIP
+                const content = await zip.generateAsync({type: "blob"});
+                const downloadUrl = URL.createObjectURL(content);
+                
+                const link = document.createElement('a');
+                link.href = downloadUrl;
+                link.download = 'shih-tzu-all-photos.zip';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Очищаем URL
+                setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+                
+                showNotification(`ZIP архив успешно создан! Скачано ${downloadedCount} фото.`);
+                
+            } catch (error) {
+                console.error('Ошибка при создании ZIP архива:', error);
+                showNotification('Ошибка при создании архива. Попробуйте скачать фото по отдельности.', true);
+            }
+        }
+
+        // Функция для отображения уведомлений
+        function showNotification(message, isError = false) {
+            // Удаляем старое уведомление, если есть
+            const oldNotification = document.querySelector('.download-notification');
+            if (oldNotification) {
+                oldNotification.remove();
+            }
+            
+            // Создаем новое уведомление
+            const notification = document.createElement('div');
+            notification.className = `download-notification ${isError ? 'error' : 'success'}`;
+            notification.textContent = message;
+            
+            // Стили для уведомления
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${isError ? '#ff6b6b' : '#4ECDC4'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+                max-width: 300px;
+            `;
+            
+            // Анимация
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            // Автоматически скрываем через 5 секунд
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+
+        // Функция для обновления прогресса загрузки
+        function updateDownloadProgress(current, total) {
+            // Удаляем старый индикатор прогресса
+            const oldProgress = document.querySelector('.download-progress');
+            if (oldProgress) {
+                oldProgress.remove();
+            }
+            
+            if (current < total) {
+                // Создаем индикатор прогресса
+                const progress = document.createElement('div');
+                progress.className = 'download-progress';
+                progress.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: white;
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+                    z-index: 1001;
+                    text-align: center;
+                    min-width: 200px;
+                `;
+                
+                const progressText = document.createElement('div');
+                progressText.textContent = `Загрузка фото: ${current} из ${total}`;
+                progressText.style.marginBottom = '10px';
+                progressText.style.fontWeight = 'bold';
+                
+                const progressBar = document.createElement('div');
+                progressBar.style.cssText = `
+                    width: 100%;
+                    height: 10px;
+                    background: #f0f0f0;
+                    border-radius: 5px;
+                    overflow: hidden;
+                `;
+                
+                const progressFill = document.createElement('div');
+                progressFill.style.cssText = `
+                    width: ${(current / total) * 100}%;
+                    height: 100%;
+                    background: linear-gradient(45deg, var(--primary), var(--secondary));
+                    transition: width 0.3s ease;
+                `;
+                
+                progressBar.appendChild(progressFill);
+                progress.appendChild(progressText);
+                progress.appendChild(progressBar);
+                
+                document.body.appendChild(progress);
+            } else {
+                // Удаляем индикатор прогресса при завершении
+                const progress = document.querySelector('.download-progress');
+                if (progress) {
+                    progress.remove();
+                }
+            }
+        }
+
+        // Функция для генерации карточек скачивания
+        function generateDownloadCards() {
+            const container = document.getElementById('downloadContainer');
+            container.innerHTML = '';
+            
+            photosData.forEach((photo, index) => {
+                const card = document.createElement('div');
+                card.className = 'download-card';
+                
+                card.innerHTML = `
+                    <img src="${photo.url}" alt="${photo.title}" class="download-img" loading="lazy">
+                    <div class="download-content">
+                        <h3>${photo.title}</h3>
+                        <div class="download-meta">
+                            <span>Размер: ${photo.size}</span>
+                            <span>№${index + 1}</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.8rem;">${photo.description}</p>
+                        <button class="download-btn" data-index="${index}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 5px; vertical-align: middle;">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            Скачать
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+            
+            // Добавляем обработчики для кнопок скачивания
+            document.querySelectorAll('.download-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    const photo = photosData[index];
+                    const filename = `shih-tzu-${index + 1}-${photo.title.replace(/\s+/g, '-').toLowerCase()}.jpg`;
+                    downloadPhoto(photo.url, filename);
+                });
+            });
+        }
+
+        // Основная функция инициализации
+        document.addEventListener('DOMContentLoaded', function() {
+            // Генерируем карточки для скачивания
+            generateDownloadCards();
+            
+            // Добавляем обработчик для кнопки "Скачать все"
+            const downloadAllBtn = document.getElementById('downloadAllBtn');
+            if (downloadAllBtn) {
+                downloadAllBtn.addEventListener('click', downloadAllPhotos);
+            }
+            
+            // Анимация при прокрутке
+            const sections = document.querySelectorAll('section');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -821,10 +1223,12 @@
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
             
@@ -836,14 +1240,26 @@
             
             // Кнопка телеграм
             const telegramBtn = document.querySelector('.telegram-btn');
-            telegramBtn.addEventListener('mouseover', function() {
-                this.querySelector('svg').style.transform = 'scale(1.2)';
-            });
-            
-            telegramBtn.addEventListener('mouseout', function() {
-                this.querySelector('svg').style.transform = 'scale(1)';
-            });
+            if (telegramBtn) {
+                telegramBtn.addEventListener('mouseover', function() {
+                    const svg = this.querySelector('svg');
+                    if (svg) svg.style.transform = 'scale(1.2)';
+                });
+                
+                telegramBtn.addEventListener('mouseout', function() {
+                    const svg = this.querySelector('svg');
+                    if (svg) svg.style.transform = 'scale(1)';
+                });
+            }
         });
+
+        // Добавляем JSZip библиотеку динамически
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+        script.integrity = 'sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==';
+        script.crossOrigin = 'anonymous';
+        script.referrerPolicy = 'no-referrer';
+        document.head.appendChild(script);
     </script>
 </body>
 </html>
